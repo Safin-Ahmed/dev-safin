@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap');
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+section.main {
+    padding: 12rem 0;
+}
+
+.container {
+   max-width: 1170px;
+   margin: auto;
+}
+
+.welcome-msg {
+   text-align: center;
+}
+
+.welcome-msg h1 {
+    font-size: 5rem;
+}
+
+.welcome-msg p {
+    
+}
+
+body {
+    font-family: 'Nanum Gothic Coding', monospace;
+    font-size: 1.6rem;
+}
