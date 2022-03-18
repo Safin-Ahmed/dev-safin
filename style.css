@@ -11,28 +11,108 @@ html {
     font-size: 62.5%;
 }
 
+body {
+    background-color: #393A59;
+    font-family: 'Nanum Gothic Coding', monospace;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
 section.main {
     padding: 12rem 0;
 }
 
 .container {
-   max-width: 1170px;
+   max-width: 800px;
+   width: 100%;
+   height: 500px;
    margin: auto;
+   background-color: #282A35;
+   border: 1px solid gray;
+   border-radius: 10px;
+   overflow: hidden;
 }
 
-.welcome-msg {
-   text-align: center;
+.menu {
+    background-color: #424040;
+    display: flex;
+    position: relative;
+    height: 30px;
 }
 
-.welcome-msg h1 {
-    font-size: 5rem;
+.buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: 10px;
 }
 
-.welcome-msg p {
-    
+.buttons button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 0px solid transparent;
+    cursor: pointer;
 }
 
-body {
-    font-family: 'Nanum Gothic Coding', monospace;
+.red {
+    background-color: #F5544D;
+}
+
+.yellow {
+    background-color: #FABD2F;
+}
+
+.green {
+    background-color: #47D043;
+}
+
+.title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title h1 {
+    color: #9c9c9c; /* #9c9c9c */
+    font-size: 1.7rem;
+}
+
+.title h1 svg {
+    margin-right: 5px;
+}
+
+.message {
+    margin-left: 15px;
+    margin-top: 15px;
     font-size: 1.6rem;
+    color: rgb(238, 238, 238);
+    font-weight: 700;
+}
+
+.command {
+    color: #66C2CD;
+    font-weight: 700;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.cmd-msg {
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+.path {
+    color: #F7FCA0;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.path p span {
+    color: #6A77D2;
+}
+
+.path p span:last-child{
+    color: #9CEAF3;
 }
