@@ -18,6 +18,30 @@ body {
     font-weight: 400;
 }
 
+/* Scrollbar */
+
+::-webkit-scrollbar-track
+{
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	
+	background-color: #555;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #555;
+}
+
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: rgb(129, 129, 129);
+}
+
 section.main {
     padding: 12rem 0;
 }
@@ -31,6 +55,12 @@ section.main {
    border: 1px solid gray;
    border-radius: 10px;
    overflow: hidden;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 }
 
 .menu {
@@ -74,12 +104,12 @@ section.main {
     transform: translate(-50%, -50%);
 }
 
-.title h1 {
+.title h1, .message a h1 {
     color: #9c9c9c; /* #9c9c9c */
     font-size: 1.7rem;
 }
 
-.title h1 svg {
+.title h1 svg, .message a h1 svg {
     margin-right: 5px;
 }
 
@@ -89,6 +119,11 @@ section.main {
     font-size: 1.6rem;
     color: rgb(238, 238, 238);
     font-weight: 700;
+}
+
+.message a h1 {
+    color: #fff;
+    font-size: 1.6rem;
 }
 
 .command {
@@ -117,12 +152,15 @@ section.main {
     color: #9CEAF3;
 }
 
-.type {
+.type, .type2 {
     margin-left: 15px;
     margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.type svg {
+.type svg, .type2 svg {
     color: #5AD786;
 }
 
@@ -133,4 +171,14 @@ section.main {
     border: 0;
     color: rgb(238, 238, 238);
     font-size: 1.6rem;
+}
+
+.error {
+    color: #F78F85;
+}
+
+.success {
+    margin-top: 0;
+    color: #5AD786;
+    margin-left: 0;
 }
