@@ -31,14 +31,20 @@ const renderMessage = (msg, html) => {
         app.insertAdjacentHTML('beforeend', html);
         return;
     }
-    const div = document.createElement('div');
-    div.classList.add("message");
 
-    const p = document.createElement('p');
-    p.textContent = msg;
+    if(!html) {
+        const div = document.createElement('div');
+        div.classList.add("message");
 
-    div.appendChild(p);
-    app.appendChild(div);
+        const p = document.createElement('p');
+        p.textContent = msg;
+
+        div.appendChild(p);
+        app.appendChild(div);
+
+        return;
+    }
+    
 }
 
 const renderCommandMessage = (cmd, msg) => {
@@ -148,6 +154,10 @@ const executeCommand = (cmd) => {
             <a href="https://github.com/Safin-Ahmed"><h1><i class="fa-brands fa-github"></i>github.com/Safin-Ahmed</h1></a>
             </div>
         `)
+    }
+
+    if(cmd === commands[1]){
+        renderMessage("Hello There, I am Safin Ahmed, fullstack web developer and shopify expert. I love to solve problems and keep my clients happy");
     }
 
     pwd();
