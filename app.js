@@ -11,7 +11,8 @@ const terminalInit = async () => {
     introCommands();
     await delay(300);
     pwd();
-
+    await delay (150)
+    renderInput();
     
 }
 const introCommands = () => {
@@ -68,6 +69,16 @@ const pwd = () => {
         </div>
     `;
 
+    app.insertAdjacentHTML('beforeend', html);
+}
+
+const renderInput = () => {
+    const html = `
+        <div class = "type">
+        <i class="fa-solid fa-angle-right"></i>
+        <input id="type-box" type="text">
+        </div>
+    `
     app.insertAdjacentHTML('beforeend', html);
 }
 

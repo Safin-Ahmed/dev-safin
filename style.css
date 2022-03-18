@@ -116,3 +116,21 @@ section.main {
 .path p span:last-child{
     color: #9CEAF3;
 }
+
+.type {
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.type svg {
+    color: #5AD786;
+}
+
+.type input {
+    background: none;
+    box-shadow: 0 0 0 transparent;
+    outline: none;
+    border: 0;
+    color: rgb(238, 238, 238);
+    font-size: 1.6rem;
+}
