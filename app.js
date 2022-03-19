@@ -1,7 +1,7 @@
 const app = document.querySelector('#app');
 const delay = (ms) => new Promise(res => setTimeout(res, ms));
 
-const commands = ['projects', 'about me', 'social -a', 'clear'];
+const commands = ['projects', 'about me', 'social -a', 'clear', 'all'];
 
 const terminalInit = async () => {
     await delay (500);
@@ -89,11 +89,12 @@ const renderInput = () => {
     const html = `
         <div class = "type">
         <i class="fa-solid fa-angle-right"></i>
-        <input id="type-box">
+        <input autocomplete="off" autofocus id="type-box">
         </div>
     `
     app.insertAdjacentHTML('beforeend', html);
     const input = document.querySelector('#type-box');
+    input.focus();
     input.addEventListener('keypress', function(e){
         if(e.key === 'Enter'){
             const cmd = input.value;
@@ -110,6 +111,7 @@ const handleCommands = (cmd) => {
     const check = checkCommand(cmd);
     if(!check) {
         renderError(cmd);
+        return;
     }
     renderSuccess(cmd);
     executeCommand(cmd);
@@ -127,9 +129,17 @@ const checkCommand = (cmd) => {
 // Render Error 
 
 const renderError = (cmd) => {
-    document.querySelector('.type').classList.add('error');
-    document.querySelector('.type').classList.remove('success');
-    renderMessage(`Command not found: ${cmd}`)
+    document.querySelector('.type').remove();
+    const html = `
+    <div class = "type3">
+    <i class="fa-solid fa-angle-right"></i>
+    <h2 class="message error">${cmd}</h2>
+    </div>
+    `
+    app.insertAdjacentHTML('beforeend', html);
+    renderMessage(`command not found: ${cmd}`);
+    pwd();
+    renderInput();
 }
 
 // Render Success 
@@ -148,6 +158,15 @@ const renderSuccess = (cmd) => {
 // Execute Command 
 
 const executeCommand = (cmd) => {
+    if(cmd === "all"){
+        renderCommandMessage('projects', 'My github page with all my projects. Follow me there ;)')
+
+        renderCommandMessage('about me', 'Who am i and what do i do.')
+
+        renderCommandMessage('social -a', 'All my social networks.')
+
+        renderCommandMessage('clear', 'clean the terminal.')
+    }
     if(cmd === commands[0]) {
         renderMessage(false, `
             <div class = "message">
@@ -158,6 +177,33 @@ const executeCommand = (cmd) => {
 
     if(cmd === commands[1]){
         renderMessage("Hello There, I am Safin Ahmed, fullstack web developer and shopify expert. I love to solve problems and keep my clients happy");
+    }
+
+    if(cmd === commands[2]){
+        renderMessage(false, `
+            <div class = "message">
+            <a href="https://github.com/Safin-Ahmed"><h1><i class="fa-brands fa-github"></i>github.com/Safin-Ahmed</h1></a>
+            </div>
+        `)
+        renderMessage(false, `
+            <div class = "message">
+            <a href="https://www.linkedin.com/in/safin-ahmed-4932b4227/"><h1><i class="fa-brands fa-linkedin"></i>linkedin.com/in/safin-ahmed-4932b4227/</h1></a>
+            </div>
+        `)
+        renderMessage(false, `
+            <div class = "message">
+            <a href="https://www.facebook.com/safin.web/"><h1><i class="fa-brands fa-facebook"></i>facebook.com/safin.web/</h1></a>
+            </div>
+        `)
+        renderMessage(false, `
+            <div class = "message">
+            <a href="https://www.instagram.com/eh_safin/"><h1><i class="fa-brands fa-instagram"></i>instagram.com/eh_safin/</h1></a>
+            </div>
+        `)
+    }
+
+    if(cmd === commands[3]) {
+        app.textContent = '';
     }
 
     pwd();
